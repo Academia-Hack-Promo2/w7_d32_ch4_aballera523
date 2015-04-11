@@ -62,7 +62,7 @@ class Cliente
 	end
 
 	def deposito cliente, monto
-		if cliente.cuenta.length == 20
+		if cliente.cuenta.length == 23
 			cliente.credito monto
 			puts "\nSr(a) #{nombre} #{apellido} ha recibido un depósito por un monto de #{monto}"
 			cliente.mensaje monto, transaccion
@@ -72,7 +72,7 @@ class Cliente
 	end
 
 	def retiro cliente, monto
-		if cliente.cuenta.length == 20
+		if cliente.cuenta.length == 23
 			cliente.debito monto
 			puts "\nSr(a) #{nombre} #{apellido} ha realizado un retiro de su cuenta por un monto de #{monto}"
 			cliente.mensaje monto, transaccion
@@ -83,13 +83,13 @@ class Cliente
 
 
 	def transferencias cliente1, cliente2, monto
-		if cliente1.cuenta.length == 20
+		if cliente1.cuenta.length == 23
 			verificar = cliente1.disponibilidad monto
 			if verificar == true
 				cliente1.debito monto
 				puts "\nSr(a) #{nombre} #{apellido} usted ha realizado una transferencia por un monto de #{monto}\n"
 				cliente1.mensaje monto, transaccion
-				if cliente2.cuenta.length == 20
+				if cliente2.cuenta.length == 23
 					verificar = cliente2.disponibilidad monto
 					if verificar == true
 						cliente2.credito monto
@@ -126,11 +126,11 @@ end
 
 
 def main
-	cliente1 = Cliente.new "Alex", "Ballera", "8983523", "alex@ballera.com", "caracas", "02123267340", "12345678901234567890", 10000, "deposito"
-	cliente2 = Cliente.new "Jose", "Lugo", "18983523", "jose@ballera.com", "caracas", "02123267340", "12345678901234567891", 15000, "deposito"
-	cliente3 = Cliente.new "Pedro", "Gonzalez", "10983523", "pedro@ballera.com", "caracas", "02123267340", "12345678901234567892", 25000, "deposito"
-	cliente4 = Cliente.new "Juan", "Perez", "11983523", "juan@ballera.com", "caracas", "02123267340", "12345678901234567893", 5000, "deposito"
-	cliente5 = Cliente.new "Jose", "Bolivar", "12983523", "jose@ballera.com", "caracas", "02123267340", "12345678901234567894", 6000, "deposito"
+	cliente1 = Cliente.new "Alex", "Ballera", "8983523", "alex@ballera.com", "caracas", "02123267340", "0134-2548-20-1234567890", 10000, "deposito"
+	cliente2 = Cliente.new "Jose", "Lugo", "18983523", "jose@ballera.com", "caracas", "02123267340", "0134-2548-20-1234567891", 15000, "deposito"
+	cliente3 = Cliente.new "Pedro", "Gonzalez", "10983523", "pedro@ballera.com", "caracas", "02123267340", "0134-2548-20-1234567892", 25000, "deposito"
+	cliente4 = Cliente.new "Juan", "Perez", "11983523", "juan@ballera.com", "caracas", "02123267340", "0134-2548-20-1234567893", 5000, "deposito"
+	cliente5 = Cliente.new "Jose", "Bolivar", "12983523", "jose@ballera.com", "caracas", "02123267340", "0134-2548-20-1234567894", 6000, "deposito"
 	
 	cliente1.clientes cliente1
 	cliente2.clientes cliente2
